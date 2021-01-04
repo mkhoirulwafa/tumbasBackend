@@ -37,6 +37,7 @@ app.use(`${api}/orders`, ordersRouter);
 app.use(`${api}/users`, usersRouter);
 app.use(`${api}/category`, categoriesRouter);
 
+// app listen
 app.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
