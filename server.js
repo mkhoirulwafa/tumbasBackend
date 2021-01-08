@@ -15,11 +15,13 @@ const productRouter = require("./routers/products");
 const ordersRouter = require("./routers/orders");
 const usersRouter = require("./routers/users");
 const categoriesRouter = require("./routers/categories");
+const authJwt = require("./helpers/jwt");
 
 //middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan("tiny"));
+app.use(authJwt);
 
 // connect DB
 mongoose
