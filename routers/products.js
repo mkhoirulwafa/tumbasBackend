@@ -15,7 +15,7 @@ router.get(`/`, async (req, res) => {
   if (!productList) {
     return res.status(404).send("Product Not Found");
   }
-  res.send(productList);
+  return res.send(productList);
 });
 
 // GET PRODUCT BY ID
@@ -24,7 +24,7 @@ router.get(`/:id`, async (req, res) => {
   if (!product) {
     return res.status(404).send("Product with id Not Found");
   }
-  res.send(product);
+  return res.send(product);
 });
 
 // GET COUNT OF PRODUCT
@@ -33,7 +33,7 @@ router.get(`/get/count`, async (req, res) => {
   if (!productCount) {
     return res.status(404).send("Product Empty");
   }
-  res.send({
+  return res.send({
     productCount: productCount,
   });
 });
@@ -45,7 +45,7 @@ router.get(`/get/featured/:limit`, async (req, res) => {
   if (!product) {
     return res.status(404).send("Nothing Featured Product Now");
   }
-  res.send(product);
+  return res.send(product);
 });
 
 // CREATE PRODUCT
@@ -107,7 +107,7 @@ router.put(`/:id`, async (req, res) => {
   if (!product) {
     return res.status(400).send("Product cannot be updated");
   }
-  res.status(201).json(product);
+  return res.status(201).json(product);
 });
 
 // DELETE PRODUCT

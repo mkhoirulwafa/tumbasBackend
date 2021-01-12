@@ -6,21 +6,23 @@ const { Category } = require("../models/category");
 router.get(`/`, async (req, res) => {
   const categoryList = await Category.find();
   if (!categoryList) {
-    res.status(500).json({ message: "Empty Category List", success: false });
+    return res
+      .status(500)
+      .json({ message: "Empty Category List", success: false });
   }
-  res.status(200).send(categoryList);
+  return res.status(200).send(categoryList);
 });
 
 // GET CATEGORY BY ID
 router.get(`/:id`, async (req, res) => {
   const category = await Category.findById(req.params.id);
   if (!category) {
-    res.status(500).json({
+    return res.status(500).json({
       message: `Category with id ${req.params.id} is not found`,
       success: false,
     });
   }
-  res.status(200).send(category);
+  return res.status(200).send(category);
 });
 
 // UPDATE CATEGORY
@@ -38,7 +40,7 @@ router.put(`/:id`, async (req, res) => {
   if (!category) {
     return res.status(500).send("Category successfully updated");
   }
-  res.status(201).json(category);
+  return res.status(201).json(category);
 });
 
 // CREATE CATEGORY
@@ -53,7 +55,7 @@ router.post(`/`, async (req, res) => {
   if (!category) {
     return res.status(500).send("Category cannot be created!");
   }
-  res.status(201).json(category);
+  return res.status(201).json(category);
 });
 
 // DELETE CATEGORY

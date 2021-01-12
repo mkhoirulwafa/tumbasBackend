@@ -21,7 +21,7 @@ const authJwt = require("./helpers/jwt");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan("tiny"));
-app.use(authJwt);
+app.use(authJwt());
 
 // connect DB
 mongoose
