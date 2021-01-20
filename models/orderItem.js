@@ -16,4 +16,4 @@ orderItemSchema.virtual("id").get(function () {
 });
 orderItemSchema.set("toJSON", { virtuals: true });
 
-exports.Orders = mongoose.model("Orders", orderItemSchema);
+exports.OrderItem = mongoose.model("OrderItem", orderItemSchema);
